@@ -1,0 +1,10 @@
+Name: {{model.name}}
+
+{{!
+  ! Delegate most of the work here to our item-table component, just defining
+  ! the column headers and how a row should look.
+  !}}
+{{#item-table leftColumn='Name' rightColumn='Title' items=model.members as |person|}}
+  <td>{{#link-to 'people.person' person.id}}{{person.name}}{{/link-to}}</td>
+  <td>{{person.title}}</td>
+{{/item-table}}

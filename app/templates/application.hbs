@@ -1,11 +1,8 @@
 <h2 id="title">Welcome to Embertime</h2>
 
-{{capitalize model.fullName}}!
+<ul>
+  <li>{{#link-to 'departments'}}Departments{{/link-to}}</li>
+  <li>{{#link-to 'people'}}People{{/link-to}}</li>
+</ul>
 
-{{#link-to 'people.person' 'dan'}}
-  Dan
-{{/link-to}}
-
-<div style="background: green">
-  {{outlet}}
-</div>
+{{outlet}}

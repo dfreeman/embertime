@@ -1,0 +1,20 @@
+{{!--
+  ! Here we've factored out a bunch of the common table markup we
+  ! were repeating in several different places around our templates.
+  !
+  ! Take a look at one of the `index.hbs` templates to see how we're
+  ! passing data into this component. In particular, make sure you
+  ! get the interaction between the {{yield}} in this template and
+  ! the "block content" (stuff between {{#item-table}}...{{/item-table}})
+  ! in the invoking template.
+  !--}}
+<table>
+  <thead>
+    <tr><th>{{leftColumn}}</th><th>{{rightColumn}}</th></tr>
+  </thead>
+  <tbody>
+    {{#each items as |item|}}
+      <tr>{{yield item}}</tr>
+    {{/each}}
+  </tbody>
+</table>

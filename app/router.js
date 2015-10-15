@@ -7,7 +7,13 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('people', function() {
+    // implicitly, there's a `this.route('index', { path: '' });` here
     this.route('person', { path: ':person_id' });
+  });
+
+  this.route('departments', function() {
+    // implicitly, there's a `this.route('index', { path: '' });` here
+    this.route('department', { path: ':department_id' });
   });
 });
 

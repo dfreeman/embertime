@@ -1,3 +1,11 @@
-{{model.person_id}} is a person.
+{{!
+  ! Notice how the department name gets filled in slightly later if
+  ! we haven't already fetched it. If we wanted to avoid that, we could
+  ! either make sure the department gets sideloaded along with the
+  ! person model, or force our model hook to also wait for the department
+  ! load before resolving.
+  !}}
 
-{{outlet}}
+Name: {{model.name}}<br/>
+Title: {{model.title}}<br/>
+Department: {{#link-to 'departments.department' model.department.id}}{{model.department.name}}{{/link-to}}
