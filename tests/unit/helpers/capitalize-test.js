@@ -5,6 +5,5 @@ module('Unit | Helper | capitalize');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  var result = capitalize(42);
-  assert.ok(result);
+  assert.ok(capitalize);
 });
