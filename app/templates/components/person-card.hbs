@@ -1,0 +1,22 @@
+{{!
+  ! Notice how the department name gets filled in slightly later if
+  ! we haven't already fetched it. If we wanted to avoid that, we could
+  ! either make sure the department gets sideloaded along with the
+  ! person model, or force our model hook to also wait for the department
+  ! load before resolving.
+  !}}
+
+{{#md-card
+  title=(concat person.firstName ' ' person.lastName)
+  image=person.image
+  class='person-card'
+}}
+  {{#md-card-content}}
+    {{#link-to 'departments.department' person.department.id}}{{person.department.name}}{{/link-to}}<br>
+    {{person.role}}
+  {{/md-card-content}}
+
+  {{#md-card-action}}
+    {{#link-to 'people.person' person}}Details{{/link-to}}
+  {{/md-card-action}}
+{{/md-card}}

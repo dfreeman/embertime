@@ -1,11 +1,27 @@
-{{!
-  ! Notice how the department name gets filled in slightly later if
-  ! we haven't already fetched it. If we wanted to avoid that, we could
-  ! either make sure the department gets sideloaded along with the
-  ! person model, or force our model hook to also wait for the department
-  ! load before resolving.
-  !}}
+{{#md-card class='person-detail'}}
+  <div class="flex-row">
+    <div class="card-image"><img src={{model.image}}></div>
+    <div class="flex-col person-details">
+      <span class="card-title">{{model.firstName}} {{model.lastName}}</span>
 
-Name: {{model.name}}<br/>
-Title: {{model.title}}<br/>
-Department: {{#link-to 'departments.department' model.department.id}}{{model.department.name}}{{/link-to}}
+      <table>
+        <tr><td><strong>Role</strong></td><td>{{model.role}}</td></tr>
+        <tr><td><strong>Hometown</strong></td><td>{{model.homeTown}}</td></tr>
+        <tr><td><strong>Date of Birth</strong></td><td>{{model.dateOfBirth}}</td></tr>
+        <tr><td><strong>Start Date</strong></td><td>{{model.salsifyStartDate}}</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="flex-row">
+    {{#g-map lat=37.7833 lng=-90 zoom=4 markersFitMode='live' as |map|}}
+      {{#g-map-address-marker map address=model.currentCity as |marker|}}
+        {{g-map-infowindow marker message='Current City'}}
+      {{/g-map-address-marker}}
+
+      {{#g-map-address-marker map address=model.homeTown as |marker|}}
+        {{g-map-infowindow marker message='Hometown'}}
+      {{/g-map-address-marker}}
+    {{/g-map}}
+  </div>
+{{/md-card}}

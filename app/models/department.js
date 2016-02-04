@@ -1,4 +1,6 @@
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 
 /*
  * This model represents a department in our organization.
@@ -24,7 +26,7 @@ import DS from 'ember-data';
  * department. Otherwise, a GET request will go out for each person the first
  * time you do `department.get('members')`
  */
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  members: DS.hasMany('person')
+export default Model.extend({
+  name: attr('string'),
+  members: hasMany('person')
 });

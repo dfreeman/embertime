@@ -8,6 +8,14 @@ module.exports = function(defaults) {
     babel: {
       stage: 0,
       includePolyfill: true
+    },
+
+    dotEnv: {
+      clientAllowedKeys: ['SALSIFY_API_KEY']
+    },
+
+    sassOptions: {
+      includePaths: ['bower_components/materialize/sass']
     }
   });
 

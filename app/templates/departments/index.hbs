@@ -2,7 +2,6 @@
   ! Delegate most of the work here to our item-table component, just defining
   ! the column headers and how a row should look.
   !}}
-{{#item-table leftColumn='Name' rightColumn='Members' items=model as |department|}}
+{{#item-table leftColumn='Department' items=model as |department|}}
   <td>{{#link-to 'departments.department' department.id}}{{department.name}}{{/link-to}}</td>
-  <td>{{department.members.length}}</td>
 {{/item-table}}

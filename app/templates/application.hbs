@@ -1,8 +1,19 @@
-<h2 id="title">Welcome to Embertime</h2>
+{{#md-navbar name='Embertime'}}
+  {{#active-link}}
+    {{#link-to 'people'}}People{{/link-to}}
+  {{/active-link}}
 
-<ul>
-  <li>{{#link-to 'departments'}}Departments{{/link-to}}</li>
-  <li>{{#link-to 'people'}}People{{/link-to}}</li>
-</ul>
+  {{#active-link}}
+    {{#link-to 'departments'}}Departments{{/link-to}}
+  {{/active-link}}
+{{/md-navbar}}
 
-{{outlet}}
+<div class="application-content">
+  {{outlet}}
+</div>
+
+{{md-modal-container}}
+
+<div style="visibility: hidden">
+  {{g-map lat=37.7833 lng=-90 zoom=4}}
+</div>

@@ -1,0 +1,86 @@
+@import 'components/color';
+
+$primary-color: color('blue', 'lighten-2');
+$secondary-color: color('yellow', 'lighten-2');
+
+$link-color: color('yellow', 'darken-2');
+$card-link-color: $link-color;
+
+@import 'components/variables';
+@import 'materialize';
+@import 'ember-cli-materialize';
+
+// Don't look at this for any kind of CSS/Sass good practices
+
+.application-content {
+  margin: auto;
+  max-width: 1000px;
+
+  display: flex;
+  flex-flow: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+
+  & > .ember-view {
+    flex: 1;
+  }
+}
+
+.fixed-table {
+  table-layout: fixed;
+}
+
+.card-image {
+  width: 300px;
+  height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: initial !important;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.people-container {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+
+.person-card {
+  width: 300px;
+}
+
+.person-detail {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.g-map-canvas {
+  width: 1000px;
+  height: 500px;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-col {
+  display: flex;
+  flex-flow: column;
+}
+
+.flex-end {
+  align-self: flex-end;
+}
+
+.person-details {
+  flex: 1;
+  padding: 0 2em;
+}
