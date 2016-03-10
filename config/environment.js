@@ -8,7 +8,8 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     'g-map': {
-      libraries: ['places']
+      libraries: ['places'],
+      key: process.env.GOOGLE_API_KEY
     },
 
     EmberENV: {

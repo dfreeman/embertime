@@ -1,9 +1,11 @@
 import Controller from 'ember-controller';
 
 export default Controller.extend({
+  showMap: false,
+
   actions: {
-    updateLocation() {
-      console.log(arguments);
+    toggleMap() {
+      this.toggleProperty('showMap');
     }
   }
 });

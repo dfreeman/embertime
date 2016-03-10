@@ -1,15 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  /*
-   * Because the entry in router.js for this route has a dynamic segment
-   * called `:department_id`, Ember's default behavior in the model hook
-   * for this route is going to be to look for a model called 'department'
-   * and then try to load the one with that id. If we wanted to be explicit,
-   * we could define the model hook ourselves:
-   */
+  // We keep an explicitly-sorted list of the department members because it makes for nicer
+  // transitions between the main people index and specific department pages.
+  async model(params) {
+    const department = await this.store.findRecord('department', params.department_id);
+    const members = (await department.get('members')).sortBy('lastName');
+    return { department, members };
+  },
 
-  //  model(params) {
-  //    return this.store.findRecord('department', params.department_id);
-  //  }
+  setupController(controller, { department, members }) {
+    controller.setProperties({ department, members });
+  }
 });

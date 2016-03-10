@@ -12,6 +12,10 @@ $card-link-color: $link-color;
 
 // Don't look at this for any kind of CSS/Sass good practices
 
+body {
+  background-color: #f9f9f9;
+}
+
 .application-content {
   margin: auto;
   max-width: 1000px;

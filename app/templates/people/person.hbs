@@ -1,6 +1,6 @@
 {{#md-card class='person-detail'}}
   <div class="flex-row">
-    <div class="card-image"><img src={{model.image}}></div>
+    <div class="card-image"><img src={{model.image}} data-person-image={{model.id}}></div>
     <div class="flex-col person-details">
       <span class="card-title">{{model.firstName}} {{model.lastName}}</span>
 
@@ -10,18 +10,18 @@
         <tr><td><strong>Date of Birth</strong></td><td>{{model.dateOfBirth}}</td></tr>
         <tr><td><strong>Start Date</strong></td><td>{{model.salsifyStartDate}}</td></tr>
       </table>
+
+      {{md-btn icon='mdi-maps-place' buttonType='floating' action='toggleMap' class='indigo flex-end'}}
     </div>
   </div>
 
   <div class="flex-row">
-    {{#g-map lat=37.7833 lng=-90 zoom=4 markersFitMode='live' as |map|}}
-      {{#g-map-address-marker map address=model.currentCity as |marker|}}
-        {{g-map-infowindow marker message='Current City'}}
-      {{/g-map-address-marker}}
-
-      {{#g-map-address-marker map address=model.homeTown as |marker|}}
-        {{g-map-infowindow marker message='Hometown'}}
-      {{/g-map-address-marker}}
-    {{/g-map}}
+    {{#liquid-if showMap use='crossFade'}}
+      {{#g-map lat=37.7833 lng=-90 zoom=4 as |map|}}
+        {{#g-map-address-marker map address=model.homeTown as |marker|}}
+          {{g-map-infowindow marker message='Hometown'}}
+        {{/g-map-address-marker}}
+      {{/g-map}}
+    {{/liquid-if}}
   </div>
 {{/md-card}}
